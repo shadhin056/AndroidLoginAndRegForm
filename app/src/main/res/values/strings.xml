@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HelloWorldOnlyJava</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_phone">Enter Phone Number</string>
+    <string name="enter_birth_date">Enter Birth Day</string>
+    <string name="enter_submit">Submit</string>
+</resources>
