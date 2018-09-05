@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        nick_name=(EditText) findViewById(R.id.nick_name);
-        phone_number=(EditText) findViewById(R.id.phone_numer);
-        birthday_day_text_view=(TextView)findViewById(R.id.birthday_date_view);
-        birthday=(EditText) findViewById(R.id.birthday);
+        nick_name= findViewById(R.id.nick_name);
+        phone_number= findViewById(R.id.phone_numer);
+        birthday_day_text_view=findViewById(R.id.birthday_date_view);
+        birthday= findViewById(R.id.birthday);
         birthday.setInputType(InputType.TYPE_NULL);
 
         birthday.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 picker.show();
             }
         });
-        submit=(Button)findViewById(R.id.submit);
+        submit=findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
