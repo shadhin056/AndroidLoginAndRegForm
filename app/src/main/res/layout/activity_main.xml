@@ -2,34 +2,65 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:orientation="vertical" >
+    android:paddingRight="16dp">
+
     <EditText
         android:id="@+id/nick_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="@string/enter_name" />
+        android:hint="@string/enter_name"
+        android:inputType="text" />
+
     <EditText
         android:id="@+id/phone_numer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enter_phone"
-        android:inputType="number"/>
+        android:inputType="number" />
+
     <EditText
         android:id="@+id/birthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/enter_birth_date"/> />
+        android:hint="@string/enter_birth_date" />
+    />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enter_email"
+        android:inputType="textWebEmailAddress" />
+    />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enter_password"
+        android:inputType="textWebPassword" />
+    />
+
+    <EditText
+        android:id="@+id/reenter_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enter_password_again"
+        android:inputType="textWebPassword" />
+    />
 
     <TextView
         android:id="@+id/birthday_date_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/submit"

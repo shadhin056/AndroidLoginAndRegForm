@@ -2,6 +2,14 @@
     <string name="app_name">HelloWorldOnlyJava</string>
     <string name="enter_name">Enter Name</string>
     <string name="enter_phone">Enter Phone Number</string>
-    <string name="enter_birth_date">Enter Birth Day</string>
+    <string name="enter_birth_date">DAY/Month/Year</string>
+    <string name="enter_email">Enter email</string>
+    <string name="enter_password">Enter password</string>
+    <string name="enter_password_again">Re-Enter passwor</string>
     <string name="enter_submit">Submit</string>
+    <string name="display_name">Your Name</string>
+    <string name="display_email">Your Email</string>
+    <string name="display_phone">Your Phone</string>
+    <string name="display_password">Your Password</string>
+    <string name="display_birthday">Your Birthday</string>
 </resources>
