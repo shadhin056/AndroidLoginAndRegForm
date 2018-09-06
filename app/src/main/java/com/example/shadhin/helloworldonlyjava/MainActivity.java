@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //find id
         nickName = findViewById(R.id.nick_name);
         phoneNumber = findViewById(R.id.phone_numer);
@@ -49,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         birthdayTextView = findViewById(R.id.birthday_date_view);
         birthDay = findViewById(R.id.birthday);
         submitButton = findViewById(R.id.submit);
+
+
+
         //validation using awesome AwesomeValidation
         //https://github.com/thyrlian/AwesomeValidation
         awesomeValidation=new AwesomeValidation(ValidationStyle.BASIC);
