@@ -5,17 +5,24 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+
 public class DataViewActivities extends AppCompatActivity {
     TextView nameView;
     TextView phoneView;
     TextView birthdayView;
     TextView emailView;
     TextView passwordView;
+    //AwesomeValidation awesomeValidation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.form_data_view);
+
+
+
 
         nameView = (TextView) findViewById(R.id.name_display);
         phoneView = (TextView) findViewById(R.id.phone_display);
