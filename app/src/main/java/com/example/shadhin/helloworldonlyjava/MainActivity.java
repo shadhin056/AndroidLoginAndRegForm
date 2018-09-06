@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         //https://github.com/thyrlian/AwesomeValidation
         awesomeValidation=new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidation.addValidation(MainActivity.this,R.id.nick_name,"[a-zA-Z\\s]+",R.string.error_nickName);
-        awesomeValidation.addValidation(MainActivity.this,R.id.phone_numer, RegexTemplate.TELEPHONE,R.string.error_phoneNumber);
+       // awesomeValidation.addValidation(MainActivity.this,R.id.phone_numer, RegexTemplate.TELEPHONE,R.string.error_phoneNumber);
+        awesomeValidation.addValidation(MainActivity.this,R.id.phone_numer, "[0-9\\s]+",R.string.error_phoneNumber);
         awesomeValidation.addValidation(MainActivity.this,R.id.email,android.util.Patterns.EMAIL_ADDRESS,R.string.error_email);
        // String regexPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#\\$%\\^&\\*\\(\\)\\-_\\+=\\{\\}\\[\\]\\|\\;:\"<>,./\\?]).{8,}";
         String regexPassword = "[a-zA-Z0-9\\s]+";
