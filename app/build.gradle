@@ -35,6 +35,7 @@ dependencies {
 
 
     implementation 'com.basgeekball:awesome-validation:4.2'
+    implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
 
     //testing
     testImplementation 'junit:junit:4.12'
