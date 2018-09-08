@@ -1,9 +1,11 @@
 package com.example.shadhin.helloworldonlyjava;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
@@ -14,6 +16,7 @@ public class DataViewActivities extends AppCompatActivity {
     TextView birthdayView;
     TextView emailView;
     TextView passwordView;
+    DBManager dbManager;
     //AwesomeValidation awesomeValidation;
 
     @Override
@@ -42,9 +45,19 @@ public class DataViewActivities extends AppCompatActivity {
         emailView.setText(sessionId4);
         passwordView.setText(sessionId5);
 
-        DBManager dbManager=new DBManager(this);
-
-
+        dbManager =new DBManager(this);
+        ContentValues values=new ContentValues();
+        values.put(DBManager.COL_USERNAME,sessionId1);
+        values.put(DBManager.COL_PHONE,sessionId2);
+        values.put(DBManager.COL_BIRTHDAY,sessionId3);
+        values.put(DBManager.COL_EMAIL,sessionId4);
+        values.put(DBManager.COL_PASSWORD,sessionId5);
+        long id=dbManager.insert(values);
+        if(id>0){
+            Toast.makeText(getApplicationContext(),"Data is added and user id : "+id,Toast.LENGTH_LONG).show();
+        }else {
+            Toast.makeText(getApplicationContext(),"Can not inserted : ",Toast.LENGTH_LONG).show();
+        }
 
 
 
