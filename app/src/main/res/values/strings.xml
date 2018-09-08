@@ -18,4 +18,8 @@
     <string name="error_email">Enter correct email formate</string>
     <string name="error_password">Enter correct formate</string>
     <string name="error_rePassword">Password should be matched</string>
+    <string name="all_name">Name</string>
+    <string name="all_email">Email</string>
+    <string name="all_birthday">Birthday</string>
+    <string name="all_phone">Phone</string>
 </resources>
