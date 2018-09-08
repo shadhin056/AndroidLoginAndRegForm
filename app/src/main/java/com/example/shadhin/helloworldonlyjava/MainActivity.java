@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(awesomeValidation.validate()){
-                    Toast.makeText(MainActivity.this, "Date Received Successfully", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(MainActivity.this, "Date Received Successfully", Toast.LENGTH_SHORT).show();
                     birthdayTextView.setText("Selected Date: " + birthDay.getText());
                     // setContentView(R.layout.form_data_view);
                     Intent intent = new Intent(MainActivity.this, DataViewActivities.class);

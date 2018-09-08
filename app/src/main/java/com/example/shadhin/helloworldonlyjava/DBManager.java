@@ -2,14 +2,18 @@ package com.example.shadhin.helloworldonlyjava;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.widget.Toast;
 
 public class DBManager {
     private SQLiteDatabase sqlDB;
+
     static final String DB_NAME = "DB_Login_Reg";
     static final String TABLE_NAME = "Users";
+    static final String COL_ID = "Id";
     static final String COL_USERNAME = "UserName";
     static final String COL_EMAIL = "Email";
     static final String COL_PASSWORD = "Password";
@@ -47,6 +51,13 @@ public class DBManager {
     public long insert(ContentValues values){
         long id=sqlDB.insert(TABLE_NAME,"",values);
         return id;
+    }
+    //select username,password from logins where id=1
+    public Cursor query(String[] Projection, String Selection , String[] SelectionArgs, String SortOrder){
+        SQLiteQueryBuilder qb=new SQLiteQueryBuilder();
+        qb.setTables(TABLE_NAME);
+        Cursor cursor =qb.query(sqlDB,Projection,Selection,SelectionArgs,null,null,SortOrder);
+        return cursor;
     }
 }
 
