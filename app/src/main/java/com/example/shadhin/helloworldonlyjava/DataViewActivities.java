@@ -61,7 +61,7 @@ public class DataViewActivities extends AppCompatActivity {
         values.put(DBManager.COL_PASSWORD, sessionId5);
         long id = dbManager.insert(values);
         if (id > 0) {
-           // Toast.makeText(getApplicationContext(), "Data is added and user id : " + id, Toast.LENGTH_LONG).show();
+            // Toast.makeText(getApplicationContext(), "Data is added and user id : " + id, Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(getApplicationContext(), "Can not inserted : ", Toast.LENGTH_LONG).show();
         }
@@ -87,7 +87,7 @@ public class DataViewActivities extends AppCompatActivity {
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_PHONE)),
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_BIRTHDAY))));
             } while (cursor.moveToNext());
-           Toast.makeText(getApplicationContext(), tableData, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), tableData, Toast.LENGTH_LONG).show();
         }
         //add data and view it
         myadapter = new MyCustomAdapter(listnewsData);
@@ -126,9 +126,7 @@ public class DataViewActivities extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater mInflater = getLayoutInflater();
             View myView = mInflater.inflate(R.layout.layout_users, null);
-
             final AdapterItems s = listnewsDataAdpater.get(position);
-
             TextView id = (TextView) myView.findViewById(R.id.a_id);
             id.setText(s.id);
             TextView name = (TextView) myView.findViewById(R.id.a_name_id);
@@ -139,7 +137,6 @@ public class DataViewActivities extends AppCompatActivity {
             email.setText(s.email);
             TextView birthday = (TextView) myView.findViewById(R.id.a_birthday_id);
             birthday.setText(s.birthday);
-
             return myView;
         }
 

@@ -52,17 +52,16 @@ public class MainActivity extends AppCompatActivity {
         submitButton = findViewById(R.id.submit);
 
 
-
         //validation using awesome AwesomeValidation
         //https://github.com/thyrlian/AwesomeValidation
-        awesomeValidation=new AwesomeValidation(ValidationStyle.BASIC);
-        awesomeValidation.addValidation(MainActivity.this,R.id.nick_name,"[a-zA-Z\\s]+",R.string.error_nickName);
-       // awesomeValidation.addValidation(MainActivity.this,R.id.phone_numer, RegexTemplate.TELEPHONE,R.string.error_phoneNumber);
-        awesomeValidation.addValidation(MainActivity.this,R.id.phone_numer, "[0-9\\s]+",R.string.error_phoneNumber);
-        awesomeValidation.addValidation(MainActivity.this,R.id.email,android.util.Patterns.EMAIL_ADDRESS,R.string.error_email);
-       // String regexPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#\\$%\\^&\\*\\(\\)\\-_\\+=\\{\\}\\[\\]\\|\\;:\"<>,./\\?]).{8,}";
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        awesomeValidation.addValidation(MainActivity.this, R.id.nick_name, "[a-zA-Z\\s]+", R.string.error_nickName);
+        // awesomeValidation.addValidation(MainActivity.this,R.id.phone_numer, RegexTemplate.TELEPHONE,R.string.error_phoneNumber);
+        awesomeValidation.addValidation(MainActivity.this, R.id.phone_numer, "[0-9\\s]+", R.string.error_phoneNumber);
+        awesomeValidation.addValidation(MainActivity.this, R.id.email, android.util.Patterns.EMAIL_ADDRESS, R.string.error_email);
+        // String regexPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#\\$%\\^&\\*\\(\\)\\-_\\+=\\{\\}\\[\\]\\|\\;:\"<>,./\\?]).{8,}";
         String regexPassword = "[a-zA-Z0-9\\s]+";
-        awesomeValidation.addValidation(MainActivity.this,R.id.password,regexPassword,R.string.error_password);
+        awesomeValidation.addValidation(MainActivity.this, R.id.password, regexPassword, R.string.error_password);
         awesomeValidation.addValidation(MainActivity.this, R.id.reenter_password, R.id.password, R.string.error_rePassword);
         // to validate with a simple custom validator function
         awesomeValidation.addValidation(MainActivity.this, R.id.birthday, new SimpleCustomValidation() {
@@ -94,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         }, R.string.error_birthDay);
-            // date pick from calender (when click on editText)
+        // date pick from calender (when click on editText)
         birthDay.setInputType(InputType.TYPE_NULL);
         birthDay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(awesomeValidation.validate()){
-                   // Toast.makeText(MainActivity.this, "Date Received Successfully", Toast.LENGTH_SHORT).show();
+                if (awesomeValidation.validate()) {
+                    // Toast.makeText(MainActivity.this, "Date Received Successfully", Toast.LENGTH_SHORT).show();
                     birthdayTextView.setText("Selected Date: " + birthDay.getText());
                     // setContentView(R.layout.form_data_view);
                     Intent intent = new Intent(MainActivity.this, DataViewActivities.class);
@@ -131,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("password1", password.getText().toString());
                     intent.putExtra("repassword1", rePassword.getText().toString());
                     startActivity(intent);
-                }else {
+                } else {
                     Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
 

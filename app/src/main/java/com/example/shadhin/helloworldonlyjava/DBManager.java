@@ -48,15 +48,17 @@ public class DBManager {
         DatabaseHelperUser db = new DatabaseHelperUser(context);
         sqlDB = db.getWritableDatabase();
     }
-    public long insert(ContentValues values){
-        long id=sqlDB.insert(TABLE_NAME,"",values);
+
+    public long insert(ContentValues values) {
+        long id = sqlDB.insert(TABLE_NAME, "", values);
         return id;
     }
+
     //select username,password from logins where id=1
-    public Cursor query(String[] Projection, String Selection , String[] SelectionArgs, String SortOrder){
-        SQLiteQueryBuilder qb=new SQLiteQueryBuilder();
+    public Cursor query(String[] Projection, String Selection, String[] SelectionArgs, String SortOrder) {
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         qb.setTables(TABLE_NAME);
-        Cursor cursor =qb.query(sqlDB,Projection,Selection,SelectionArgs,null,null,SortOrder);
+        Cursor cursor = qb.query(sqlDB, Projection, Selection, SelectionArgs, null, null, SortOrder);
         return cursor;
     }
 }
