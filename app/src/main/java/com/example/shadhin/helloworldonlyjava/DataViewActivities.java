@@ -81,7 +81,7 @@ public class DataViewActivities extends AppCompatActivity {
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_BIRTHDAY))+","+
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_PHONE))+"::";*/
 
-                listnewsData.add(new AdapterItems(
+                listnewsData.add(new AdapterItems(cursor.getString(cursor.getColumnIndex(DBManager.COL_ID)),
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_USERNAME)),
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL)),
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_PHONE)),
@@ -129,8 +129,8 @@ public class DataViewActivities extends AppCompatActivity {
 
             final AdapterItems s = listnewsDataAdpater.get(position);
 
-            /*TextView id = (TextView) myView.findViewById(R.id.a_id);
-            id.setText(s.id);*/
+            TextView id = (TextView) myView.findViewById(R.id.a_id);
+            id.setText(s.id);
             TextView name = (TextView) myView.findViewById(R.id.a_name_id);
             name.setText(s.nickName);
             TextView phone = (TextView) myView.findViewById(R.id.a_phone_id);

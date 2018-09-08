@@ -13,7 +13,7 @@ public class DBManager {
 
     static final String DB_NAME = "DB_Login_Reg";
     static final String TABLE_NAME = "Users";
-    static final String COL_ID = "Id";
+    static final String COL_ID = "ID";
     static final String COL_USERNAME = "UserName";
     static final String COL_EMAIL = "Email";
     static final String COL_PASSWORD = "Password";
