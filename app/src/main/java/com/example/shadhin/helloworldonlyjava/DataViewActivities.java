@@ -42,5 +42,11 @@ public class DataViewActivities extends AppCompatActivity {
         emailView.setText(sessionId4);
         passwordView.setText(sessionId5);
 
+        DBManager dbManager=new DBManager(this);
+
+
+
+
+
     }
 }
