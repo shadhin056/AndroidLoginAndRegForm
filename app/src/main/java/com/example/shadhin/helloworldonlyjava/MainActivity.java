@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     Button resetButton;
     Button randomButton;
     Button quickDataLoad;
+    Button quickLogin;
     ImageButton calenderButton;
     AwesomeValidation awesomeValidation;
 
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         randomButton = findViewById(R.id.random_input);
         calenderButton = findViewById(R.id.calender_btn);
         quickDataLoad = findViewById(R.id.quick_load_data);
+        quickLogin = findViewById(R.id.login_btn);
 
 
         //validation using awesome AwesomeValidation
@@ -120,6 +122,13 @@ public class MainActivity extends AppCompatActivity {
                 birthDay.setText("31/12/1993");
                 password.setText("123456");
                 rePassword.setText("123456");
+            }
+        });
+        quickLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
             }
         });
 
