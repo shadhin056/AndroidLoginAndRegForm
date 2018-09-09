@@ -105,8 +105,8 @@ public class DataViewActivities extends AppCompatActivity {
                 //adapter class
                 ArrayList<AdapterItems> listnewsData = new ArrayList<AdapterItems>();
                 MyCustomAdapter myadapter;
-
-                Cursor cursor = dbManager.query(null, null, null, null);
+                String DESC="ID DESC";
+                Cursor cursor = dbManager.query(null, null, null, DESC);
                 if (cursor.moveToFirst()) {
                     String tableData = "";
                     do {
