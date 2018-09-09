@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Button submitButton;
     Button resetButton;
     Button randomButton;
+    Button quickDataLoad;
     ImageButton calenderButton;
     AwesomeValidation awesomeValidation;
 
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         resetButton = findViewById(R.id.reset);
         randomButton = findViewById(R.id.random_input);
         calenderButton = findViewById(R.id.calender_btn);
+        quickDataLoad = findViewById(R.id.quick_load_data);
 
 
         //validation using awesome AwesomeValidation
@@ -160,6 +162,13 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+        quickDataLoad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DataViewActivities.class);
+                startActivity(intent);
             }
         });
     }
