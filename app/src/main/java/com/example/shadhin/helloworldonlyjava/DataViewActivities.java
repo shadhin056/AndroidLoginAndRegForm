@@ -41,7 +41,8 @@ public class DataViewActivities extends AppCompatActivity {
     String birthday_insert;
     String email_insert;
     String password_insert;
-
+    ArrayList<AdapterItems> listnewsData;
+    MyCustomAdapter myadapter;
     //AwesomeValidation awesomeValidation;
 
     @Override
@@ -76,11 +77,13 @@ public class DataViewActivities extends AppCompatActivity {
         birthday_insert = sessionId3;
         email_insert = sessionId4;
         password_insert = sessionId5;
+        listnewsData = new ArrayList<AdapterItems>();
+
 
         loadData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                listnewsData.clear();
                 if (name_insert != null) {
                     ContentValues values = new ContentValues();
                     values.put(DBManager.COL_USERNAME, name_insert);
@@ -103,9 +106,7 @@ public class DataViewActivities extends AppCompatActivity {
                 }
 
                 //adapter class
-                ArrayList<AdapterItems> listnewsData = new ArrayList<AdapterItems>();
-                MyCustomAdapter myadapter;
-                String DESC="ID DESC";
+                String DESC = "ID DESC";
                 Cursor cursor = dbManager.query(null, null, null, DESC);
                 if (cursor.moveToFirst()) {
                     String tableData = "";
