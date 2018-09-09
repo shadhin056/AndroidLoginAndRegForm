@@ -28,24 +28,27 @@
         android:hint="@string/enter_phone"
         android:inputType="number" />
 
-    <RelativeLayout android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText android:id="@+id/up_birthday"
+        <EditText
+            android:id="@+id/up_birthday"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:paddingRight="40dp"
+            android:hint="@string/enter_birth_date"
             android:inputType="text"
-            android:hint="@string/enter_birth_date" />
+            android:paddingRight="40dp"
+            android:singleLine="true" />
 
-        <ImageButton android:id="@+id/calender_btn"
+        <ImageButton
+            android:id="@+id/calender_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/up_birthday"
             android:layout_alignBottom="@+id/up_birthday"
             android:layout_alignRight="@+id/up_birthday"
-            android:background="@drawable/calender"/>
+            android:layout_alignTop="@+id/up_birthday"
+            android:background="@drawable/calender" />
 
     </RelativeLayout>
 

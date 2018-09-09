@@ -197,15 +197,16 @@ public class DataViewActivities extends AppCompatActivity {
                 }
             });
             Button updateUserId;
-            updateUserId=(Button) myView.findViewById(R.id.update_user_by_id);
+            updateUserId = (Button) myView.findViewById(R.id.update_user_by_id);
             updateUserId.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(DataViewActivities.this,UserUpdate.class);
+                    Intent intent = new Intent(DataViewActivities.this, UserUpdate.class);
                     intent.putExtra("nick_name2", String.valueOf(s.nickName));
                     intent.putExtra("phone_number2", String.valueOf(s.phone));
                     intent.putExtra("birthday2", String.valueOf(s.birthday));
                     intent.putExtra("email2", String.valueOf(s.email));
+                    intent.putExtra("id2", String.valueOf(s.id));
                     startActivity(intent);
                 }
             });
