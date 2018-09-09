@@ -28,13 +28,27 @@
         android:hint="@string/enter_phone"
         android:inputType="number" />
 
-    <EditText
-        android:id="@+id/birthday"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/enter_birth_date" />
-    />
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText android:id="@+id/birthday"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:paddingRight="40dp"
+            android:inputType="text"
+            android:hint="@string/enter_birth_date" />
+
+        <ImageButton android:id="@+id/calender_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/birthday"
+            android:layout_alignBottom="@+id/birthday"
+            android:layout_alignRight="@+id/birthday"
+            android:background="@drawable/calender"/>
+
+    </RelativeLayout>
+
 
     <EditText
         android:id="@+id/email"

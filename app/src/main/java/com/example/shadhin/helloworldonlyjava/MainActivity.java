@@ -1,5 +1,6 @@
 package com.example.shadhin.helloworldonlyjava;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     Button submitButton;
     Button resetButton;
     Button randomButton;
+    ImageButton calenderButton;
     AwesomeValidation awesomeValidation;
 
     @Override
@@ -54,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         submitButton = findViewById(R.id.submit);
         resetButton = findViewById(R.id.reset);
         randomButton = findViewById(R.id.random_input);
+        calenderButton = findViewById(R.id.calender_btn);
 
 
         //validation using awesome AwesomeValidation
@@ -98,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }, R.string.error_birthDay);
         // date pick from calender (when click on editText)
-        birthDay.setInputType(InputType.TYPE_NULL);
+        //birthDay.setInputType(InputType.TYPE_NULL);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +126,8 @@ public class MainActivity extends AppCompatActivity {
                 rePassword.setText("123456");
             }
         });
-        birthDay.setOnClickListener(new View.OnClickListener() {
+
+        calenderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Calendar cldr = Calendar.getInstance();
