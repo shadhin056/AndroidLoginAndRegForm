@@ -13,10 +13,10 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:textColor="?attr/colorPrimary"
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:text="@string/all_id"
+            android:textColor="?attr/colorPrimary"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -63,11 +63,11 @@
         android:weightSum="5">
 
         <TextView
-            android:textColor="?attr/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:text="@string/all_email"
+            android:textColor="?attr/colorPrimary"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -89,11 +89,11 @@
         android:weightSum="5">
 
         <TextView
-            android:textColor="?attr/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:text="@string/all_birthday"
+            android:textColor="?attr/colorPrimary"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -114,11 +114,11 @@
         android:weightSum="5">
 
         <TextView
-            android:textColor="?attr/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:text="@string/all_phone"
+            android:textColor="?attr/colorPrimary"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -139,11 +139,11 @@
         android:weightSum="3">
 
         <TextView
-            android:textColor="?attr/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Action"
+            android:textColor="?attr/colorPrimary"
             android:textSize="18dp"
             android:textStyle="bold" />
 

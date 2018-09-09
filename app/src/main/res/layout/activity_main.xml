@@ -11,24 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enter_name"
-        android:text="shadhin"
-        android:inputType="text" />
+        android:inputType="text"
+        android:text="shadhin" />
 
     <EditText
         android:id="@+id/phone_numer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enter_phone"
-        android:text="01672708329"
-        android:inputType="number" />
+        android:inputType="number"
+        android:text="01672708329" />
 
     <EditText
         android:id="@+id/birthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:text="31/12/1990"
-        android:hint="@string/enter_birth_date" />
+        android:hint="@string/enter_birth_date"
+        android:text="31/12/1990" />
     />
 
     <EditText
@@ -36,9 +36,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:text="shadhinemail@gmail.com"
         android:hint="@string/enter_email"
-        android:inputType="textWebEmailAddress" />
+        android:inputType="textWebEmailAddress"
+        android:text="shadhinemail@gmail.com" />
     />
 
     <EditText
@@ -46,9 +46,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:text="12345678"
         android:hint="@string/enter_password"
-        android:inputType="textWebPassword" />
+        android:inputType="textWebPassword"
+        android:text="12345678" />
     />
 
     <EditText
@@ -56,9 +56,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:text="12345678"
         android:hint="@string/enter_password_again"
-        android:inputType="textWebPassword" />
+        android:inputType="textWebPassword"
+        android:text="12345678" />
     />
 
     <TextView
@@ -68,10 +68,27 @@
         android:textSize="18dp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="100dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="@string/enter_submit" />
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:text="@string/enter_submit" />
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:text="@string/enter_reset" />
+    </LinearLayout>
+
 </LinearLayout>

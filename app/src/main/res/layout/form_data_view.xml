@@ -126,21 +126,22 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/load_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Load User List" />
+
         <TextView
-            android:textStyle="italic|bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="All User in This App"
-            android:textColor="?attr/colorPrimary" />
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="italic|bold" />
 
     </LinearLayout>
 

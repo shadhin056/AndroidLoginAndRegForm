@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     EditText rePassword;
     TextView birthdayTextView;
     Button submitButton;
+    Button resetButton;
     AwesomeValidation awesomeValidation;
 
     @Override
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         birthdayTextView = findViewById(R.id.birthday_date_view);
         birthDay = findViewById(R.id.birthday);
         submitButton = findViewById(R.id.submit);
+        resetButton = findViewById(R.id.reset);
 
 
         //validation using awesome AwesomeValidation
@@ -95,6 +97,17 @@ public class MainActivity extends AppCompatActivity {
         }, R.string.error_birthDay);
         // date pick from calender (when click on editText)
         birthDay.setInputType(InputType.TYPE_NULL);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nickName.setText("");
+                email.setText("");
+                phoneNumber.setText("");
+                birthDay.setText("");
+                password.setText("");
+                rePassword.setText("");
+            }
+        });
         birthDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
