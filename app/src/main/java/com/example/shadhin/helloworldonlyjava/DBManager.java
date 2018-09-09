@@ -61,6 +61,11 @@ public class DBManager {
         Cursor cursor = qb.query(sqlDB, Projection, Selection, SelectionArgs, null, null, SortOrder);
         return cursor;
     }
+
+    public int Delete(String Selection, String[] SelectionArgs) {
+        int id = sqlDB.delete(TABLE_NAME, Selection, SelectionArgs);
+        return id;
+    }
 }
 
 

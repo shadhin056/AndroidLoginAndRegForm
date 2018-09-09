@@ -29,6 +29,7 @@ public class DataViewActivities extends AppCompatActivity {
     TextView passwordView;
     DBManager dbManager;
     Button loadData;
+
     String sessionId1;
     String sessionId2;
     String sessionId3;
@@ -57,6 +58,7 @@ public class DataViewActivities extends AppCompatActivity {
         emailView = (TextView) findViewById(R.id.email);
         passwordView = (TextView) findViewById(R.id.password);
         loadData = (Button) findViewById(R.id.load_data);
+
         dbManager = new DBManager(this);
         sessionId1 = getIntent().getStringExtra("nick_name1");
         sessionId2 = getIntent().getStringExtra("phone_number1");
@@ -83,58 +85,62 @@ public class DataViewActivities extends AppCompatActivity {
         loadData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listnewsData.clear();
-                if (name_insert != null) {
-                    ContentValues values = new ContentValues();
-                    values.put(DBManager.COL_USERNAME, name_insert);
-                    values.put(DBManager.COL_PHONE, phone_insert);
-                    values.put(DBManager.COL_BIRTHDAY, birthday_insert);
-                    values.put(DBManager.COL_EMAIL, email_insert);
-                    values.put(DBManager.COL_PASSWORD, password_insert);
-                    long id = dbManager.insert(values);
-                    if (id > 0) {
-                        // Toast.makeText(getApplicationContext(), "Data is added and user id : " + id, Toast.LENGTH_LONG).show();
-                        name_insert = null;
-                        phone_insert = null;
-                        birthday_insert = null;
-                        email_insert = null;
-                        password_insert = null;
+                load_data();
+            }
+        });
 
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Can not inserted : ", Toast.LENGTH_LONG).show();
-                    }
-                }
 
-                //adapter class
-                String DESC = "ID DESC";
-                Cursor cursor = dbManager.query(null, null, null, DESC);
-                if (cursor.moveToFirst()) {
-                    String tableData = "";
-                    do {
+    }
+
+    public void load_data() {
+        listnewsData.clear();
+        if (name_insert != null) {
+            ContentValues values = new ContentValues();
+            values.put(DBManager.COL_USERNAME, name_insert);
+            values.put(DBManager.COL_PHONE, phone_insert);
+            values.put(DBManager.COL_BIRTHDAY, birthday_insert);
+            values.put(DBManager.COL_EMAIL, email_insert);
+            values.put(DBManager.COL_PASSWORD, password_insert);
+            long id = dbManager.insert(values);
+            if (id > 0) {
+                // Toast.makeText(getApplicationContext(), "Data is added and user id : " + id, Toast.LENGTH_LONG).show();
+                name_insert = null;
+                phone_insert = null;
+                birthday_insert = null;
+                email_insert = null;
+                password_insert = null;
+
+            } else {
+                Toast.makeText(getApplicationContext(), "Can not inserted : ", Toast.LENGTH_LONG).show();
+            }
+        }
+
+        //adapter class
+        String DESC = "ID DESC";
+        Cursor cursor = dbManager.query(null, null, null, DESC);
+        if (cursor.moveToFirst()) {
+            String tableData = "";
+            do {
                 /*tableData+=cursor.getString(cursor.getColumnIndex(DBManager.COL_ID))+","+
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_USERNAME))+","+
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL))+","+
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_BIRTHDAY))+","+
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_PHONE))+"::";*/
 
-                        listnewsData.add(new AdapterItems(cursor.getString(cursor.getColumnIndex(DBManager.COL_ID)),
-                                cursor.getString(cursor.getColumnIndex(DBManager.COL_USERNAME)),
-                                cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL)),
-                                cursor.getString(cursor.getColumnIndex(DBManager.COL_PHONE)),
-                                cursor.getString(cursor.getColumnIndex(DBManager.COL_BIRTHDAY))));
-                    } while (cursor.moveToNext());
-                    Toast.makeText(getApplicationContext(), tableData, Toast.LENGTH_LONG).show();
-                }
-                //add data and view it
-                myadapter = new MyCustomAdapter(listnewsData);
+                listnewsData.add(new AdapterItems(cursor.getString(cursor.getColumnIndex(DBManager.COL_ID)),
+                        cursor.getString(cursor.getColumnIndex(DBManager.COL_USERNAME)),
+                        cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL)),
+                        cursor.getString(cursor.getColumnIndex(DBManager.COL_PHONE)),
+                        cursor.getString(cursor.getColumnIndex(DBManager.COL_BIRTHDAY))));
+            } while (cursor.moveToNext());
+            Toast.makeText(getApplicationContext(), tableData, Toast.LENGTH_LONG).show();
+        }
+        //add data and view it
+        myadapter = new MyCustomAdapter(listnewsData);
 
 
-                ListView lsNews = (ListView) findViewById(R.id.lv_user);
-                lsNews.setAdapter(myadapter);//intisal with data
-            }
-        });
-
-
+        ListView lsNews = (ListView) findViewById(R.id.lv_user);
+        lsNews.setAdapter(myadapter);//intisal with data
     }
 
 
@@ -176,6 +182,20 @@ public class DataViewActivities extends AppCompatActivity {
             email.setText(s.email);
             TextView birthday = (TextView) myView.findViewById(R.id.a_birthday_id);
             birthday.setText(s.birthday);
+
+            Button btnDelete = (Button) myView.findViewById(R.id.btn_delete);
+            btnDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String[] SelectionArgs = {s.id};
+                    int id_deleted = dbManager.Delete("ID=?", SelectionArgs);
+                    if (id_deleted > 0) {
+                        load_data();
+                    }
+                }
+            });
+
+
             return myView;
         }
 
