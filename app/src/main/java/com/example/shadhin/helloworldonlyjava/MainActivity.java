@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     TextView birthdayTextView;
     Button submitButton;
     Button resetButton;
+    Button randomButton;
     AwesomeValidation awesomeValidation;
 
     @Override
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         birthDay = findViewById(R.id.birthday);
         submitButton = findViewById(R.id.submit);
         resetButton = findViewById(R.id.reset);
+        randomButton = findViewById(R.id.random_input);
 
 
         //validation using awesome AwesomeValidation
@@ -108,6 +110,17 @@ public class MainActivity extends AppCompatActivity {
                 rePassword.setText("");
             }
         });
+        randomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nickName.setText("shadhin");
+                email.setText("shadhinemail@gmail.com");
+                phoneNumber.setText("01672708329");
+                birthDay.setText("31/12/1993");
+                password.setText("123456");
+                rePassword.setText("123456");
+            }
+        });
         birthDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (awesomeValidation.validate()) {
                     // Toast.makeText(MainActivity.this, "Date Received Successfully", Toast.LENGTH_SHORT).show();
-                    birthdayTextView.setText("Selected Date: " + birthDay.getText());
+                    //birthdayTextView.setText("Selected Date: " + birthDay.getText());
                     // setContentView(R.layout.form_data_view);
                     Intent intent = new Intent(MainActivity.this, DataViewActivities.class);
 
