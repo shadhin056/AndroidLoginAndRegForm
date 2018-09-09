@@ -3,6 +3,7 @@ package com.example.shadhin.helloworldonlyjava;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,20 @@ public class DataViewActivities extends AppCompatActivity {
     TextView emailView;
     TextView passwordView;
     DBManager dbManager;
+    Button loadData;
+    String sessionId1;
+    String sessionId2;
+    String sessionId3;
+    String sessionId4;
+    String sessionId5;
+    String sessionId6;
+
+    String name_insert;
+    String phone_insert;
+    String birthday_insert;
+    String email_insert;
+    String password_insert;
+
     //AwesomeValidation awesomeValidation;
 
     @Override
@@ -39,62 +55,84 @@ public class DataViewActivities extends AppCompatActivity {
         birthdayView = (TextView) findViewById(R.id.birthday_display);
         emailView = (TextView) findViewById(R.id.email);
         passwordView = (TextView) findViewById(R.id.password);
+        loadData = (Button) findViewById(R.id.load_data);
+        dbManager = new DBManager(this);
+        sessionId1 = getIntent().getStringExtra("nick_name1");
+        sessionId2 = getIntent().getStringExtra("phone_number1");
+        sessionId3 = getIntent().getStringExtra("birthday1");
+        sessionId4 = getIntent().getStringExtra("email1");
+        sessionId5 = getIntent().getStringExtra("password1");
+        sessionId6 = getIntent().getStringExtra("repassword1");
 
-        String sessionId1 = getIntent().getStringExtra("nick_name1");
-        String sessionId2 = getIntent().getStringExtra("phone_number1");
-        String sessionId3 = getIntent().getStringExtra("birthday1");
-        String sessionId4 = getIntent().getStringExtra("email1");
-        String sessionId5 = getIntent().getStringExtra("password1");
-        String sessionId6 = getIntent().getStringExtra("repassword1");
+
         nameView.setText(sessionId1);
         phoneView.setText(sessionId2);
         birthdayView.setText(sessionId3);
         emailView.setText(sessionId4);
         passwordView.setText(sessionId5);
 
-        dbManager = new DBManager(this);
-        ContentValues values = new ContentValues();
-        values.put(DBManager.COL_USERNAME, sessionId1);
-        values.put(DBManager.COL_PHONE, sessionId2);
-        values.put(DBManager.COL_BIRTHDAY, sessionId3);
-        values.put(DBManager.COL_EMAIL, sessionId4);
-        values.put(DBManager.COL_PASSWORD, sessionId5);
-        long id = dbManager.insert(values);
-        if (id > 0) {
-            // Toast.makeText(getApplicationContext(), "Data is added and user id : " + id, Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Can not inserted : ", Toast.LENGTH_LONG).show();
-        }
+        name_insert = sessionId1;
+        phone_insert = sessionId2;
+        birthday_insert = sessionId3;
+        email_insert = sessionId4;
+        password_insert = sessionId5;
 
+        loadData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        //adapter class
-        ArrayList<AdapterItems> listnewsData = new ArrayList<AdapterItems>();
-        MyCustomAdapter myadapter;
+                if (name_insert != null) {
+                    ContentValues values = new ContentValues();
+                    values.put(DBManager.COL_USERNAME, name_insert);
+                    values.put(DBManager.COL_PHONE, phone_insert);
+                    values.put(DBManager.COL_BIRTHDAY, birthday_insert);
+                    values.put(DBManager.COL_EMAIL, email_insert);
+                    values.put(DBManager.COL_PASSWORD, password_insert);
+                    long id = dbManager.insert(values);
+                    if (id > 0) {
+                        // Toast.makeText(getApplicationContext(), "Data is added and user id : " + id, Toast.LENGTH_LONG).show();
+                        name_insert = null;
+                        phone_insert = null;
+                        birthday_insert = null;
+                        email_insert = null;
+                        password_insert = null;
 
-        Cursor cursor = dbManager.query(null, null, null, null);
-        if (cursor.moveToFirst()) {
-            String tableData = "";
-            do {
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Can not inserted : ", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                //adapter class
+                ArrayList<AdapterItems> listnewsData = new ArrayList<AdapterItems>();
+                MyCustomAdapter myadapter;
+
+                Cursor cursor = dbManager.query(null, null, null, null);
+                if (cursor.moveToFirst()) {
+                    String tableData = "";
+                    do {
                 /*tableData+=cursor.getString(cursor.getColumnIndex(DBManager.COL_ID))+","+
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_USERNAME))+","+
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL))+","+
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_BIRTHDAY))+","+
                         cursor.getString(cursor.getColumnIndex(DBManager.COL_PHONE))+"::";*/
 
-                listnewsData.add(new AdapterItems(cursor.getString(cursor.getColumnIndex(DBManager.COL_ID)),
-                        cursor.getString(cursor.getColumnIndex(DBManager.COL_USERNAME)),
-                        cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL)),
-                        cursor.getString(cursor.getColumnIndex(DBManager.COL_PHONE)),
-                        cursor.getString(cursor.getColumnIndex(DBManager.COL_BIRTHDAY))));
-            } while (cursor.moveToNext());
-            Toast.makeText(getApplicationContext(), tableData, Toast.LENGTH_LONG).show();
-        }
-        //add data and view it
-        myadapter = new MyCustomAdapter(listnewsData);
+                        listnewsData.add(new AdapterItems(cursor.getString(cursor.getColumnIndex(DBManager.COL_ID)),
+                                cursor.getString(cursor.getColumnIndex(DBManager.COL_USERNAME)),
+                                cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL)),
+                                cursor.getString(cursor.getColumnIndex(DBManager.COL_PHONE)),
+                                cursor.getString(cursor.getColumnIndex(DBManager.COL_BIRTHDAY))));
+                    } while (cursor.moveToNext());
+                    Toast.makeText(getApplicationContext(), tableData, Toast.LENGTH_LONG).show();
+                }
+                //add data and view it
+                myadapter = new MyCustomAdapter(listnewsData);
 
 
-        ListView lsNews = (ListView) findViewById(R.id.lv_user);
-        lsNews.setAdapter(myadapter);//intisal with data
+                ListView lsNews = (ListView) findViewById(R.id.lv_user);
+                lsNews.setAdapter(myadapter);//intisal with data
+            }
+        });
+
 
     }
 
