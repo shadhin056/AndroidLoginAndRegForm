@@ -66,6 +66,10 @@ public class DBManager {
         int id = sqlDB.delete(TABLE_NAME, Selection, SelectionArgs);
         return id;
     }
+    public int Update(ContentValues values,String Selection,String [] SelectionArgs){
+        int id=sqlDB.update(TABLE_NAME,values,Selection,SelectionArgs);
+        return id;
+    }
 }
 
 

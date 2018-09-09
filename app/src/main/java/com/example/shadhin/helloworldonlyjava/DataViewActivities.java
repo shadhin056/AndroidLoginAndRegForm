@@ -30,6 +30,7 @@ public class DataViewActivities extends AppCompatActivity {
     DBManager dbManager;
     Button loadData;
 
+
     String sessionId1;
     String sessionId2;
     String sessionId3;
@@ -58,6 +59,7 @@ public class DataViewActivities extends AppCompatActivity {
         emailView = (TextView) findViewById(R.id.email);
         passwordView = (TextView) findViewById(R.id.password);
         loadData = (Button) findViewById(R.id.load_data);
+
 
         dbManager = new DBManager(this);
         sessionId1 = getIntent().getStringExtra("nick_name1");
@@ -192,6 +194,19 @@ public class DataViewActivities extends AppCompatActivity {
                     if (id_deleted > 0) {
                         load_data();
                     }
+                }
+            });
+            Button updateUserId;
+            updateUserId=(Button) myView.findViewById(R.id.update_user_by_id);
+            updateUserId.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(DataViewActivities.this,UserUpdate.class);
+                    intent.putExtra("nick_name2", String.valueOf(s.nickName));
+                    intent.putExtra("phone_number2", String.valueOf(s.phone));
+                    intent.putExtra("birthday2", String.valueOf(s.birthday));
+                    intent.putExtra("email2", String.valueOf(s.email));
+                    startActivity(intent);
                 }
             });
 

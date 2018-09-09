@@ -1,15 +1,10 @@
 package com.example.shadhin.helloworldonlyjava;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.DatePickerDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -19,7 +14,6 @@ import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
-import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.basgeekball.awesomevalidation.utility.custom.SimpleCustomValidation;
 
 import java.text.ParseException;
@@ -54,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         rePassword = findViewById(R.id.reenter_password);
         birthdayTextView = findViewById(R.id.birthday_date_view);
-        birthDay = findViewById(R.id.birthday);
+        birthDay = findViewById(R.id.up_birthday);
         submitButton = findViewById(R.id.submit);
         resetButton = findViewById(R.id.reset);
         randomButton = findViewById(R.id.random_input);
@@ -73,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         awesomeValidation.addValidation(MainActivity.this, R.id.password, regexPassword, R.string.error_password);
         awesomeValidation.addValidation(MainActivity.this, R.id.reenter_password, R.id.password, R.string.error_rePassword);
         // to validate with a simple custom validator function
-        awesomeValidation.addValidation(MainActivity.this, R.id.birthday, new SimpleCustomValidation() {
+        awesomeValidation.addValidation(MainActivity.this, R.id.up_birthday, new SimpleCustomValidation() {
             @Override
             public boolean compare(String input) {
                 // check if the age is >= 18

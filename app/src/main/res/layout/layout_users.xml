@@ -156,6 +156,7 @@
             android:textColor="@android:color/holo_red_dark" />
 
         <Button
+            android:id="@+id/update_user_by_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
