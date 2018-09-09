@@ -128,13 +128,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <Button
-            android:id="@+id/load_data"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Load User List" />
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_height="wrap_content">
 
+            <Button
+                android:id="@+id/load_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Load User List"
+                android:textColor="@android:color/holo_orange_light" />
+
+            <Button
+                android:id="@+id/reg_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Registration"
+                android:textColor="@android:color/holo_green_dark" />
+        </LinearLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
