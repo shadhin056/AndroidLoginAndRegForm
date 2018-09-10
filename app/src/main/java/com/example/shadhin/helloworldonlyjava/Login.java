@@ -71,7 +71,9 @@ public class Login extends AppCompatActivity {
 
 */
                     startActivity(intent);
-                    Toast.makeText(getApplicationContext(), tableData, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Loged in", Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Please insert currect email and password", Toast.LENGTH_LONG).show();
                 }
 
             }
