@@ -5,7 +5,7 @@
     <string name="enter_birth_date">DAY/Month/Year</string>
     <string name="enter_email">Enter email</string>
     <string name="enter_password">Enter password</string>
-    <string name="enter_password_again">Re-Enter passwor</string>
+    <string name="enter_password_again">Re-Enter password</string>
     <string name="enter_submit">Registration</string>
     <string name="enter_reset">Reset</string>
     <string name="enter_login">Login</string>

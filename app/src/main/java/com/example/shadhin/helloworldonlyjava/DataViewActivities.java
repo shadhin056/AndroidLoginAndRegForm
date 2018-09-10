@@ -60,7 +60,7 @@ public class DataViewActivities extends AppCompatActivity {
         emailView = (TextView) findViewById(R.id.email);
         passwordView = (TextView) findViewById(R.id.password);
         loadData = (Button) findViewById(R.id.load_data);
-        regGoBack=findViewById(R.id.reg_btn);
+        regGoBack = findViewById(R.id.reg_btn);
 
         dbManager = new DBManager(this);
         sessionId1 = getIntent().getStringExtra("nick_name1");
@@ -126,7 +126,7 @@ public class DataViewActivities extends AppCompatActivity {
 
         //adapter class
         String DESC = "ID DESC";
-        Cursor cursor = dbManager.query(null, null, null, DESC);
+        Cursor cursor = dbManager.query(null, null, null, DESC, null);
         if (cursor.moveToFirst()) {
             String tableData = "";
             do {

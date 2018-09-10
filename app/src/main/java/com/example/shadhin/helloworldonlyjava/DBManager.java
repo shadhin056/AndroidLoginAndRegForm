@@ -55,10 +55,10 @@ public class DBManager {
     }
 
     //select username,password from logins where id=1
-    public Cursor query(String[] Projection, String Selection, String[] SelectionArgs, String SortOrder) {
+    public Cursor query(String[] Projection, String Selection, String[] SelectionArgs, String SortOrder, String limit) {
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         qb.setTables(TABLE_NAME);
-        Cursor cursor = qb.query(sqlDB, Projection, Selection, SelectionArgs, null, null, SortOrder);
+        Cursor cursor = qb.query(sqlDB, Projection, Selection, SelectionArgs, null, null, SortOrder, limit);
         return cursor;
     }
 
@@ -71,6 +71,12 @@ public class DBManager {
         int id = sqlDB.update(TABLE_NAME, values, Selection, SelectionArgs);
         return id;
     }
+    /*public int login(String[] Projection, String Selection, String[] SelectionArgs){
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+        qb.setTables(TABLE_NAME);
+        int id=qb.query(sqlDB,Projection,Selection,SelectionArgs,null,null,null,"1");
+        return id;
+    }*/
 }
 
 

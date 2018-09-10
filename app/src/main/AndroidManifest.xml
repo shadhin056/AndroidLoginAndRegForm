@@ -31,6 +31,10 @@
             android:name=".Login"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".AfterLogin"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>

@@ -25,7 +25,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/name_display"
+            android:id="@+id/after_login_name_display"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -49,7 +49,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/phone_display"
+            android:id="@+id/after_login_phone_display"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -71,7 +71,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/birthday_display"
+            android:id="@+id/after_login_birthday_display"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -93,7 +93,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/email"
+            android:id="@+id/after_login_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -115,7 +115,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/password"
+            android:id="@+id/after_login_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -124,43 +124,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <Button
-                android:id="@+id/load_data"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Load User List"
-                android:textColor="@android:color/holo_orange_light" />
-
-            <Button
-                android:id="@+id/reg_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Registration"
-                android:textColor="@android:color/holo_green_dark" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="All User in This App"
-            android:textColor="?attr/colorPrimary"
-            android:textStyle="italic|bold" />
-
-    </LinearLayout>
 
     <!--<LinearLayout
         android:layout_width="match_parent"
@@ -211,11 +174,5 @@
             android:textStyle="bold" />
 
     </LinearLayout>-->
-
-    <ListView
-        android:id="@+id/lv_user"
-        android:layout_width="match_parent"
-
-        android:layout_height="match_parent"></ListView>
 
 </LinearLayout>
