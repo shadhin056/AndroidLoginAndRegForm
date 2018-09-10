@@ -1,6 +1,7 @@
 package com.example.shadhin.helloworldonlyjava;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.DatePickerDialog;
@@ -37,11 +38,13 @@ public class MainActivity extends AppCompatActivity {
     Button quickLogin;
     ImageButton calenderButton;
     AwesomeValidation awesomeValidation;
+    DBManager dbManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dbManager = new DBManager(this);
 
         //find id
         nickName = findViewById(R.id.nick_name);
@@ -100,6 +103,61 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         }, R.string.error_birthDay);
+
+        awesomeValidation.addValidation(MainActivity.this, R.id.email, new SimpleCustomValidation() {
+            @Override
+            public boolean compare(String input) {
+
+                // check if the age is >= 18
+
+                //String getEmail = email.getText().toString();
+               /*     Cursor cursor = dbManager.query(null, null, null, null, null);
+                    String email[]={};
+                    int i=0;
+                    int ee=0;
+                    String string="shadhinemail@gmail.com";
+                if (cursor.moveToFirst()) {
+                    do {
+                        email[i]= cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL));
+                        i=i++;
+                        Toast.makeText(MainActivity.this, email[i], Toast.LENGTH_LONG).show();
+                    } while (cursor.moveToNext());
+                }
+                for (int ii=0;i<email.length;i++){
+                    if(string==input){
+                        ee++;
+                    }
+                }*/
+                String string = "shadhinemail@gmail.com";
+                String[] selectionsArgs = {input};
+                Cursor cursor = dbManager.query(null, "Email like ? ", selectionsArgs, null, "1");
+                String myStringArray = "";
+
+
+                // String[] myStringArrays = new String[10];
+                int i = 0;
+                try {
+                    if (cursor.moveToFirst()) {
+                        do {
+                            // myStringArray= cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL));
+                            myStringArray = cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL));
+
+                            Toast.makeText(MainActivity.this, cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL)), Toast.LENGTH_LONG).show();
+                        } while (cursor.moveToNext());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                if (myStringArray.equals(input)) {
+                    return false;
+                } else {
+                    return true;
+                }
+
+
+            }
+        }, R.string.error_email_alreadyExist);
         // date pick from calender (when click on editText)
         //birthDay.setInputType(InputType.TYPE_NULL);
         resetButton.setOnClickListener(new View.OnClickListener() {
@@ -168,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("repassword1", rePassword.getText().toString());
                     startActivity(intent);
                 } else {
-                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
 
             }
