@@ -148,6 +148,18 @@
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/restapi_btn"
+            android:layout_height="wrap_content"
+            android:text="RestfulApi"
+            android:layout_weight="1"/>
 
+    </LinearLayout>
 
 </LinearLayout>

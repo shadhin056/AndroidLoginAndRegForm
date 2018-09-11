@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     Button randomButton;
     Button quickDataLoad;
     Button quickLogin;
+    Button restApiBtn;
     ImageButton calenderButton;
     AwesomeValidation awesomeValidation;
     DBManager dbManager;
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         calenderButton = findViewById(R.id.calender_btn);
         quickDataLoad = findViewById(R.id.quick_load_data);
         quickLogin = findViewById(R.id.login_btn);
-
+        restApiBtn=findViewById(R.id.restapi_btn);
 
         //validation using awesome AwesomeValidation
         //https://github.com/thyrlian/AwesomeValidation
@@ -193,6 +194,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }, R.string.error_email_alreadyExist);
+        restApiBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,RestfullApi.class);
+                startActivity(intent);
+            }
+        });
         // date pick from calender (when click on editText)
         //birthDay.setInputType(InputType.TYPE_NULL);
         resetButton.setOnClickListener(new View.OnClickListener() {
