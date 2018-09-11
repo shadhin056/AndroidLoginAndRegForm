@@ -123,7 +123,7 @@ public class AfterLogin extends AppCompatActivity {
                 int id = dbManager.update(values, "Email=?", SelectionArgs);
                 if (id > 0) {
                     Toast.makeText(getApplicationContext(), "Data is Updated" + data, Toast.LENGTH_LONG).show();
-                    loadPic();
+                    //loadPic();
                 } else {
                     Toast.makeText(getApplicationContext(), "Data is not Updated" + data, Toast.LENGTH_LONG).show();
                 }
@@ -141,7 +141,7 @@ public class AfterLogin extends AppCompatActivity {
 
     }
 
-    public void loadPic() {
+  /*  public void loadPic(){
         String[] selectionsArgs = {sessionId4, sessionId5};
         byte[] b;
         Cursor cursor = dbManager.query(null, "Email like ? and Password like ?", selectionsArgs, null, "1");
@@ -156,10 +156,7 @@ public class AfterLogin extends AppCompatActivity {
             profileImageFromDb.setImageBitmap(testImage);
         }
 
-    }
-
-    ;
-
+    };*/
     private void showPictureDialog() {
         AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
         pictureDialog.setTitle("Select Action");
