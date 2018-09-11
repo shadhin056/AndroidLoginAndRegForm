@@ -122,10 +122,10 @@ public class AfterLogin extends AppCompatActivity {
                 String[] SelectionArgs = {email.getText().toString()};
                 int id = dbManager.update(values, "Email=?", SelectionArgs);
                 if (id > 0) {
-                    Toast.makeText(getApplicationContext(), "Data is Updated" + data, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Data is Updated" , Toast.LENGTH_LONG).show();
                     //loadPic();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Data is not Updated" + data, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Data is not Updated" , Toast.LENGTH_LONG).show();
                 }
 
 
