@@ -1,6 +1,7 @@
 package com.example.shadhin.helloworldonlyjava;
 
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -49,7 +50,9 @@ public class AfterLogin extends AppCompatActivity {
     String sessionId4;
     String sessionId5;
     Button pick_image;
+    Button upIntoDbBtn;
     ImageView profile_image;
+    DBManager dbManager;
     private static final String IMAGE_DIRECTORY = "/image_store";
     private int GALLERY = 1, CAMERA = 2;
     @Override
@@ -63,6 +66,8 @@ public class AfterLogin extends AppCompatActivity {
         password = findViewById(R.id.after_login_password);
         pick_image=findViewById(R.id.pick_image_btn);
         profile_image=findViewById(R.id.profile_image);
+        upIntoDbBtn=findViewById(R.id.up_into_db_btn);
+        dbManager = new DBManager(this);
         sessionId1 = getIntent().getStringExtra("nick_name3");
         sessionId2 = getIntent().getStringExtra("phone_number3");
         sessionId3 = getIntent().getStringExtra("birthday3");
@@ -74,7 +79,32 @@ public class AfterLogin extends AppCompatActivity {
         birthday.setText(sessionId3);
         email.setText(sessionId4);
         password.setText(sessionId5);
+/*
+        upIntoDbBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                *//*profile_image.setDrawingCacheEnabled(true);
+                profile_image.buildDrawingCache();
+                Bitmap bitmap = profile_image.getDrawingCache();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                byte[] data = baos.toByteArray();*//*
 
+                *//*ContentValues values = new ContentValues();
+                //values.put(DBManager.COL_ProfilePic,data.toString());
+
+                //dbManager.addToDbImage(data);
+                String[] SelectionArgs = {email.toString()};
+                int id =  dbManager.update(values, "Email=?", SelectionArgs);
+                if (id > 0) {
+                    Toast.makeText(getApplicationContext(), "Data is Updated", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Data is not Updated", Toast.LENGTH_LONG).show();
+                }*//*
+
+
+            }
+        });*/
         pick_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

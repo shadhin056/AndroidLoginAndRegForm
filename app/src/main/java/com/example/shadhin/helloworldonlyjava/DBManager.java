@@ -19,9 +19,10 @@ public class DBManager {
     static final String COL_PASSWORD = "Password";
     static final String COL_PHONE = "Phone";
     static final String COL_BIRTHDAY = "Birthday";
+    static final String COL_ProfilePic = "Birthday";
     static final int DBVersion = 1;
     static final String CreateTable = "Create table IF NOT EXISTS " + TABLE_NAME + "(ID integer PRIMARY KEY AUTOINCREMENT," + COL_USERNAME + " text," + COL_BIRTHDAY
-            + " text," + COL_EMAIL + " text," + COL_PASSWORD + " text," + COL_PHONE + " text);";
+            + " text," + COL_EMAIL + " text," + COL_PASSWORD + " text," + COL_PHONE + " text,"+COL_ProfilePic + " BLOB DEFAULT NUll" + " );";
 
     static class DatabaseHelperUser extends SQLiteOpenHelper {
         Context context;
@@ -71,6 +72,13 @@ public class DBManager {
         int id = sqlDB.update(TABLE_NAME, values, Selection, SelectionArgs);
         return id;
     }
+    /*public int addToDbImage(ContentValues values, String Selection, String[] SelectionArgs){
+       // ContentValues contentValues=new ContentValues();
+        //contentValues.put(COL_ProfilePic,image);
+        //sqlDB.insert(TABLE_NAME,"",contentValues);
+        int id = sqlDB.update(TABLE_NAME, values, Selection, SelectionArgs);
+        return id;
+    }*/
     /*public int login(String[] Projection, String Selection, String[] SelectionArgs){
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         qb.setTables(TABLE_NAME);

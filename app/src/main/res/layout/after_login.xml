@@ -152,12 +152,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="Pick image" />
+
             <Button
-                android:layout_weight="2"
+                android:id="@+id/up_into_db_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Upload image"
-                />
+                android:layout_weight="2"
+                android:text="Upload image" />
 
         </LinearLayout>
 
