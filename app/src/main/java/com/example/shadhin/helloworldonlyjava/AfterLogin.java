@@ -36,6 +36,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.Calendar;
 
 public class AfterLogin extends AppCompatActivity {
@@ -49,9 +50,12 @@ public class AfterLogin extends AppCompatActivity {
     String sessionId3;
     String sessionId4;
     String sessionId5;
+    String sessionId6;
     Button pick_image;
     Button upIntoDbBtn;
     ImageView profile_image;
+    ImageView profileImageFromDb;
+
     DBManager dbManager;
     private static final String IMAGE_DIRECTORY = "/image_store";
     private int GALLERY = 1, CAMERA = 2;
@@ -67,18 +71,28 @@ public class AfterLogin extends AppCompatActivity {
         pick_image=findViewById(R.id.pick_image_btn);
         profile_image=findViewById(R.id.profile_image);
         upIntoDbBtn=findViewById(R.id.up_into_db_btn);
+        profileImageFromDb=findViewById(R.id.profile_image_from_db);
+
         dbManager = new DBManager(this);
         sessionId1 = getIntent().getStringExtra("nick_name3");
         sessionId2 = getIntent().getStringExtra("phone_number3");
         sessionId3 = getIntent().getStringExtra("birthday3");
         sessionId4 = getIntent().getStringExtra("email3");
         sessionId5 = getIntent().getStringExtra("password3");
+        sessionId6 = getIntent().getStringExtra("propic3");
+       //Bitmap testImage = sessionId6.getImageDataInBitmap();
+
+        byte[] b = sessionId6.getBytes(Charset.forName("UTF-8"));
+
+        Bitmap testImage=BitmapFactory.decodeByteArray(b, 0, b.length);
+        profileImageFromDb.setImageBitmap(testImage);
+
 
         name.setText(sessionId1);
         phone.setText(sessionId2);
         birthday.setText(sessionId3);
-        email.setText(sessionId4);
-        password.setText(sessionId5);
+        email.setText(b.toString());
+        password.setText(sessionId6);
 
         upIntoDbBtn.setOnClickListener(new View.OnClickListener() {
             @Override
