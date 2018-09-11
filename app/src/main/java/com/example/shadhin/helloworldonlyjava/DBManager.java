@@ -19,7 +19,7 @@ public class DBManager {
     static final String COL_PASSWORD = "Password";
     static final String COL_PHONE = "Phone";
     static final String COL_BIRTHDAY = "Birthday";
-    static final String COL_ProfilePic = "Birthday";
+    static final String COL_ProfilePic = "ProfilePic";
     static final int DBVersion = 1;
     static final String CreateTable = "Create table IF NOT EXISTS " + TABLE_NAME + "(ID integer PRIMARY KEY AUTOINCREMENT," + COL_USERNAME + " text," + COL_BIRTHDAY
             + " text," + COL_EMAIL + " text," + COL_PASSWORD + " text," + COL_PHONE + " text,"+COL_ProfilePic + " BLOB DEFAULT NUll" + " );";

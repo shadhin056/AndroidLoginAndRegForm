@@ -79,32 +79,32 @@ public class AfterLogin extends AppCompatActivity {
         birthday.setText(sessionId3);
         email.setText(sessionId4);
         password.setText(sessionId5);
-/*
+
         upIntoDbBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                *//*profile_image.setDrawingCacheEnabled(true);
+                profile_image.setDrawingCacheEnabled(true);
                 profile_image.buildDrawingCache();
                 Bitmap bitmap = profile_image.getDrawingCache();
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                byte[] data = baos.toByteArray();*//*
+                byte[] data = baos.toByteArray();
 
-                *//*ContentValues values = new ContentValues();
-                //values.put(DBManager.COL_ProfilePic,data.toString());
+                ContentValues values = new ContentValues();
+                values.put(DBManager.COL_ProfilePic,data);
 
                 //dbManager.addToDbImage(data);
-                String[] SelectionArgs = {email.toString()};
+                String[] SelectionArgs = {email.getText().toString()};
                 int id =  dbManager.update(values, "Email=?", SelectionArgs);
                 if (id > 0) {
-                    Toast.makeText(getApplicationContext(), "Data is Updated", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Data is Updated"+data, Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Data is not Updated", Toast.LENGTH_LONG).show();
-                }*//*
+                    Toast.makeText(getApplicationContext(), "Data is not Updated"+data, Toast.LENGTH_LONG).show();
+                }
 
 
             }
-        });*/
+        });
         pick_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
