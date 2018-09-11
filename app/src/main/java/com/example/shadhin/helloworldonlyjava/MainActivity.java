@@ -388,7 +388,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface paramDialogInterface, int paramInt) {
                         //  permissionsclass.requestPermission(type,code);
-                        startActivity(new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:com.exampledemo.parsaniahardik.marshmallowpermission")));
+                        startActivity(new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:com.example.shadhin.helloworldonlyjava")));
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
