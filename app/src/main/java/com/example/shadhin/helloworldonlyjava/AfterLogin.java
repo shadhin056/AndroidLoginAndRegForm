@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.io.IOException;
 
 import android.app.AlertDialog;
@@ -59,6 +61,7 @@ public class AfterLogin extends AppCompatActivity {
     DBManager dbManager;
     private static final String IMAGE_DIRECTORY = "/image_store";
     private int GALLERY = 1, CAMERA = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,10 +71,10 @@ public class AfterLogin extends AppCompatActivity {
         phone = findViewById(R.id.after_login_phone_display);
         birthday = findViewById(R.id.after_login_birthday_display);
         password = findViewById(R.id.after_login_password);
-        pick_image=findViewById(R.id.pick_image_btn);
-        profile_image=findViewById(R.id.profile_image);
-        upIntoDbBtn=findViewById(R.id.up_into_db_btn);
-        profileImageFromDb=findViewById(R.id.profile_image_from_db);
+        pick_image = findViewById(R.id.pick_image_btn);
+        profile_image = findViewById(R.id.profile_image);
+        upIntoDbBtn = findViewById(R.id.up_into_db_btn);
+        profileImageFromDb = findViewById(R.id.profile_image_from_db);
 
         dbManager = new DBManager(this);
         sessionId1 = getIntent().getStringExtra("nick_name3");
@@ -80,19 +83,27 @@ public class AfterLogin extends AppCompatActivity {
         sessionId4 = getIntent().getStringExtra("email3");
         sessionId5 = getIntent().getStringExtra("password3");
         sessionId6 = getIntent().getStringExtra("propic3");
-       //Bitmap testImage = sessionId6.getImageDataInBitmap();
+        //Bitmap testImage = sessionId6.getImageDataInBitmap();
 
-        byte[] b = sessionId6.getBytes(Charset.forName("UTF-8"));
+        String[] selectionsArgs = {sessionId4, sessionId5};
+        byte[] b;
+        Cursor cursor = dbManager.query(null, "Email like ? and Password like ?", selectionsArgs, null, "1");
+        if (cursor.moveToFirst()) {
+            String tableData = "";
+            do {
+                b = cursor.getBlob(cursor.getColumnIndex(DBManager.COL_ProfilePic));
+            } while (cursor.moveToNext());
 
-        Bitmap testImage=BitmapFactory.decodeByteArray(b, 0, b.length);
-        profileImageFromDb.setImageBitmap(testImage);
-
+            //byte[] b = sessionId6.getBytes(Charset.forName("UTF-8"));
+            Bitmap testImage = BitmapFactory.decodeByteArray(b, 0, b.length);
+            profileImageFromDb.setImageBitmap(testImage);
+        }
 
         name.setText(sessionId1);
         phone.setText(sessionId2);
         birthday.setText(sessionId3);
-        email.setText(b.toString());
-        password.setText(sessionId6);
+        email.setText(sessionId4);
+        password.setText(sessionId5);
 
         upIntoDbBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,20 +116,22 @@ public class AfterLogin extends AppCompatActivity {
                 byte[] data = baos.toByteArray();
 
                 ContentValues values = new ContentValues();
-                values.put(DBManager.COL_ProfilePic,data);
+                values.put(DBManager.COL_ProfilePic, data);
 
                 //dbManager.addToDbImage(data);
                 String[] SelectionArgs = {email.getText().toString()};
-                int id =  dbManager.update(values, "Email=?", SelectionArgs);
+                int id = dbManager.update(values, "Email=?", SelectionArgs);
                 if (id > 0) {
-                    Toast.makeText(getApplicationContext(), "Data is Updated"+data, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Data is Updated" + data, Toast.LENGTH_LONG).show();
+                    loadPic();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Data is not Updated"+data, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Data is not Updated" + data, Toast.LENGTH_LONG).show();
                 }
 
 
             }
         });
+
         pick_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,7 +140,27 @@ public class AfterLogin extends AppCompatActivity {
         });
 
     }
-    private void showPictureDialog(){
+
+    public void loadPic() {
+        String[] selectionsArgs = {sessionId4, sessionId5};
+        byte[] b;
+        Cursor cursor = dbManager.query(null, "Email like ? and Password like ?", selectionsArgs, null, "1");
+        if (cursor.moveToFirst()) {
+            String tableData = "";
+            do {
+                b = cursor.getBlob(cursor.getColumnIndex(DBManager.COL_ProfilePic));
+            } while (cursor.moveToNext());
+
+            //byte[] b = sessionId6.getBytes(Charset.forName("UTF-8"));
+            Bitmap testImage = BitmapFactory.decodeByteArray(b, 0, b.length);
+            profileImageFromDb.setImageBitmap(testImage);
+        }
+
+    }
+
+    ;
+
+    private void showPictureDialog() {
         AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
         pictureDialog.setTitle("Select Action");
         String[] pictureDialogItems = {
