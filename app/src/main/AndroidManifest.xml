@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:name="com.example.shadhin.helloworldonlyjava.AppController"
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Simple app"
@@ -44,11 +44,16 @@
             android:name=".AfterLogin"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".RestfullApi"
+        <activity
+            android:name=".RestfullApi"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".RestFulApiListView"
+            android:label="@string/title_activity_rest_ful_api_list_view"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustPan"
+            ></activity>
     </application>
 
 </manifest>

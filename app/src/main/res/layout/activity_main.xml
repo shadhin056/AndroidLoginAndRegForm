@@ -152,12 +152,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="1">
+        android:weightSum="3">
         <Button
             android:layout_width="match_parent"
             android:id="@+id/restapi_btn"
             android:layout_height="wrap_content"
             android:text="RestfulApi"
+            android:layout_weight="2"/>
+        <Button
+            android:id="@+id/restapi_list_view_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="RestfulApi with ListView"
             android:layout_weight="1"/>
 
     </LinearLayout>

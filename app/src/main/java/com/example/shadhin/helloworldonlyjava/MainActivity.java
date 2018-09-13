@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     Button quickDataLoad;
     Button quickLogin;
     Button restApiBtn;
+    Button restapiListViewBtn;
     ImageButton calenderButton;
     AwesomeValidation awesomeValidation;
     DBManager dbManager;
@@ -96,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
         calenderButton = findViewById(R.id.calender_btn);
         quickDataLoad = findViewById(R.id.quick_load_data);
         quickLogin = findViewById(R.id.login_btn);
-        restApiBtn=findViewById(R.id.restapi_btn);
+        restApiBtn = findViewById(R.id.restapi_btn);
+        restapiListViewBtn = findViewById(R.id.restapi_list_view_btn);
 
         //validation using awesome AwesomeValidation
         //https://github.com/thyrlian/AwesomeValidation
@@ -197,7 +199,14 @@ public class MainActivity extends AppCompatActivity {
         restApiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,RestfullApi.class);
+                Intent intent = new Intent(MainActivity.this, RestfullApi.class);
+                startActivity(intent);
+            }
+        });
+        restapiListViewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RestFulApiListView.class);
                 startActivity(intent);
             }
         });
