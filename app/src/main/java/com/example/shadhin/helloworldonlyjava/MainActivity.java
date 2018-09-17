@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     Button quickLogin;
     Button restApiBtn;
     Button restapiListViewBtn;
+    Button restApiMyBtn;
     ImageButton calenderButton;
     AwesomeValidation awesomeValidation;
     DBManager dbManager;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //find id
+        restApiMyBtn = findViewById(R.id.restapi_myjson);
         nickName = findViewById(R.id.nick_name);
         phoneNumber = findViewById(R.id.phone_numer);
         email = findViewById(R.id.email);
@@ -212,6 +214,13 @@ public class MainActivity extends AppCompatActivity {
         });
         // date pick from calender (when click on editText)
         //birthDay.setInputType(InputType.TYPE_NULL);
+        restApiMyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MyJsonData.class);
+                startActivity(intent);
+            }
+        });
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
