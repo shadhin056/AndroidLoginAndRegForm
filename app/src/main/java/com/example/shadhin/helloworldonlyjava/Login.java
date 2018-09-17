@@ -63,7 +63,7 @@ public class Login extends AppCompatActivity {
                         intent.putExtra("birthday3", cursor.getString(cursor.getColumnIndex(DBManager.COL_BIRTHDAY)));
                         intent.putExtra("email3", cursor.getString(cursor.getColumnIndex(DBManager.COL_EMAIL)));
                         intent.putExtra("password3", cursor.getString(cursor.getColumnIndex(DBManager.COL_PASSWORD)));
-                        intent.putExtra("propic3", cursor.getBlob( cursor.getColumnIndex(DBManager.COL_ProfilePic)).toString());
+                        intent.putExtra("propic3", cursor.getBlob(cursor.getColumnIndex(DBManager.COL_ProfilePic)).toString());
                     } while (cursor.moveToNext());
 
 
@@ -72,8 +72,8 @@ public class Login extends AppCompatActivity {
 
 */
                     startActivity(intent);
-                    Toast.makeText(getApplicationContext(), "Loged in"+ cursor.getColumnIndex(DBManager.COL_ProfilePic), Toast.LENGTH_LONG).show();
-                }else {
+                    Toast.makeText(getApplicationContext(), "Loged in" + cursor.getColumnIndex(DBManager.COL_ProfilePic), Toast.LENGTH_LONG).show();
+                } else {
                     Toast.makeText(getApplicationContext(), "Please insert currect email and password", Toast.LENGTH_LONG).show();
                 }
 

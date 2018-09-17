@@ -178,7 +178,7 @@ public class DataViewActivities extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-                LayoutInflater mInflater = getLayoutInflater();
+            LayoutInflater mInflater = getLayoutInflater();
             View myView = mInflater.inflate(R.layout.layout_users, null);
             final AdapterItems s = listnewsDataAdpater.get(position);
             TextView id = (TextView) myView.findViewById(R.id.a_id);

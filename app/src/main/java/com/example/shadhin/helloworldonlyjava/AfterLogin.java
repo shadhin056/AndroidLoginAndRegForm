@@ -122,10 +122,10 @@ public class AfterLogin extends AppCompatActivity {
                 String[] SelectionArgs = {email.getText().toString()};
                 int id = dbManager.update(values, "Email=?", SelectionArgs);
                 if (id > 0) {
-                    Toast.makeText(getApplicationContext(), "Data is Updated" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Data is Updated", Toast.LENGTH_LONG).show();
                     //loadPic();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Data is not Updated" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Data is not Updated", Toast.LENGTH_LONG).show();
                 }
 
 
@@ -141,22 +141,22 @@ public class AfterLogin extends AppCompatActivity {
 
     }
 
-  /*  public void loadPic(){
-        String[] selectionsArgs = {sessionId4, sessionId5};
-        byte[] b;
-        Cursor cursor = dbManager.query(null, "Email like ? and Password like ?", selectionsArgs, null, "1");
-        if (cursor.moveToFirst()) {
-            String tableData = "";
-            do {
-                b = cursor.getBlob(cursor.getColumnIndex(DBManager.COL_ProfilePic));
-            } while (cursor.moveToNext());
+    /*  public void loadPic(){
+          String[] selectionsArgs = {sessionId4, sessionId5};
+          byte[] b;
+          Cursor cursor = dbManager.query(null, "Email like ? and Password like ?", selectionsArgs, null, "1");
+          if (cursor.moveToFirst()) {
+              String tableData = "";
+              do {
+                  b = cursor.getBlob(cursor.getColumnIndex(DBManager.COL_ProfilePic));
+              } while (cursor.moveToNext());
 
-            //byte[] b = sessionId6.getBytes(Charset.forName("UTF-8"));
-            Bitmap testImage = BitmapFactory.decodeByteArray(b, 0, b.length);
-            profileImageFromDb.setImageBitmap(testImage);
-        }
+              //byte[] b = sessionId6.getBytes(Charset.forName("UTF-8"));
+              Bitmap testImage = BitmapFactory.decodeByteArray(b, 0, b.length);
+              profileImageFromDb.setImageBitmap(testImage);
+          }
 
-    };*/
+      };*/
     private void showPictureDialog() {
         AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
         pictureDialog.setTitle("Select Action");
